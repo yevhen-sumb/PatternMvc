@@ -1,33 +1,13 @@
 package model;
 
-public class Book {
-    Long idBook;
-    String nameBook;
+public class Book extends NamedEntity {
     String authorBook; //автор
 
     public Book() {
     }
 
-    public Book(Long idBook, String nameBook, String authorBook) {
-        this.idBook = idBook;
-        this.nameBook = nameBook;
+    public Book(String authorBook) {
         this.authorBook = authorBook;
-    }
-
-    public Long getIdBook() {
-        return idBook;
-    }
-
-    public void setIdBook(Long idBook) {
-        this.idBook = idBook;
-    }
-
-    public String getNameBook() {
-        return nameBook;
-    }
-
-    public void setNameBook(String nameBook) {
-        this.nameBook = nameBook;
     }
 
     public String getAuthorBook() {
@@ -40,10 +20,8 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book{" +
-                "idBook=" + idBook +
-                ", nameBook='" + nameBook + '\'' +
-                ", authorBook='" + authorBook + '\'' +
-                '}';
+        return "Book{" + super.toString() +
+                "authorBook='" + authorBook + '\'' +
+                "} ";
     }
 }

@@ -3,16 +3,18 @@ package controller;
 import dao.BookDaoIml;
 import model.Book;
 
+import java.util.List;
+
 public class BookController {
 
-    BookDaoIml bookDao = new BookDaoIml();
+   private BookDaoIml bookDao = new BookDaoIml();
 
     public void save(Book book){
         bookDao.save(book);
     }
 
-    public void update(Book book){
-        bookDao.update(book);
+    public void update(Long id, Book book){
+        bookDao.update(id, book);
     }
 
     public void remove(Book book){
@@ -21,6 +23,15 @@ public class BookController {
 
 
     public Book getById(Long id){
-       return bookDao.getById(id);
+        try {
+            return bookDao.getById(id);
+        } catch (Exception e) {
+            System.out.println("Такого id еще нет");
+        }
+        return new Book();
+    }
+
+    public List<Book> getAllBooks(){
+       return bookDao.getAll();
     }
 }
